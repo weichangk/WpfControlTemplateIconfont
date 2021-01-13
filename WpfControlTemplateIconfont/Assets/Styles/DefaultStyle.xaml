@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<!--资源字典-->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+            <ControlTemplate TargetType="Button" x:Key="CloseButtonTemplate">
+                <Border Background="Transparent"><!--画X-->
+                    <Path Data="M0 0 12 12 M0 12 12 0" Stroke="White" StrokeThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
+                </Border>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

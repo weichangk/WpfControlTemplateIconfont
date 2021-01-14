@@ -3,10 +3,35 @@
 <!--资源字典-->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
+            <!--关闭按键模板-->
             <ControlTemplate TargetType="Button" x:Key="CloseButtonTemplate">
                 <Border Background="Transparent"><!--画X-->
                     <Path Data="M0 0 12 12 M0 12 12 0" Stroke="White" StrokeThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center"></Path>
                 </Border>
+            </ControlTemplate>
+            
+            <!--普通按键模板-->
+            <ControlTemplate TargetType="Button" x:Key="ButtonTemplate">
+                <!--设置圆角-->
+                <Border x:Name="border" CornerRadius="5" Background="#007DFA">
+                    <Grid>
+                        <!--设置文字居中-->
+                        <ContentControl Content="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <!--背景色变浅-->
+                        <Border CornerRadius="4" x:Name="back" Background="#22FFFFFF" Visibility="Hidden"/>
+                    </Grid>
+                </Border>
+                <ControlTemplate.Triggers>
+                    <Trigger  Property="IsEnabled" Value="true">
+                        <!--设置背景色-->
+                        <Setter TargetName="border" Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent},Path=Background}">
+                        </Setter>
+                    </Trigger>
+                    <Trigger  Property="IsMouseOver" Value="true">
+                        <!--设置鼠标移动到按键背景色变浅-->
+                        <Setter Property="Visibility" Value="Visible" TargetName="back"/>
+                    </Trigger>
+                </ControlTemplate.Triggers>
             </ControlTemplate>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
